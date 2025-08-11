@@ -194,7 +194,9 @@ function App() {
         {/* Greeting */}
         <h2 className="text-xl md:text-2xl font-semibold text-white/90 mb-4 drop-shadow-md">
           Halo Miftakul Azizi, Belajar Apa Hari Ini ?
-          Have a Great Day
+          <br />
+          <br />
+          Have a Great Day :)
         </h2>
 
         {/* Time Display */}
