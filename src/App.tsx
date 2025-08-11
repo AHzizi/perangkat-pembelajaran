@@ -205,43 +205,50 @@ function App() {
         </div>
 
         {/* Learning Cards Dropdown */}
-        <div className="w-full max-w-md mb-8">
-          <button
-            onClick={() => setShowCards(!showCards)}
-            className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 text-white hover:bg-white/30 transition-all duration-300 flex items-center justify-between"
-          >
-            <span className="font-semibold">Materi Pembelajaran</span>
-            {showCards ? <ChevronUp /> : <ChevronDown />}
-          </button>
+       <div
+  className={`w-full max-w-md mb-8 ${
+    showCards ? "mb-[120px] sm:mb-8" : "mb-8"
+  }`}
+>
+  <button
+    onClick={() => setShowCards(!showCards)}
+    className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 text-white hover:bg-white/30 transition-all duration-300 flex items-center justify-between"
+  >
+    <span className="font-semibold">Materi Pembelajaran</span>
+    {showCards ? <ChevronUp /> : <ChevronDown />}
+  </button>
 
-          {showCards && (
-            <div className="mt-4 space-y-3 animate-in slide-in-from-top-2 duration-300">
-              {cards.map((card) => (
-                <a
-                  key={card.id}
-                  href={card.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                >
-                  <div className="flex items-center space-x-4">
-                    <Book className={`w-6 h-6 ${card.iconColor} transition-transform duration-300 hover:scale-110`} />
-                    <span className="text-white font-medium">{card.title}</span>
-                  </div>
-                </a>
-              ))}
+  {showCards && (
+    <div className="mt-4 space-y-3 animate-in slide-in-from-top-2 duration-300">
+      {cards.map((card) => (
+        <a
+          key={card.id}
+          href={card.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+        >
+          <div className="flex items-center space-x-4">
+            <Book
+              className={`w-6 h-6 ${card.iconColor} transition-transform duration-300 hover:scale-110`}
+            />
+            <span className="text-white font-medium">{card.title}</span>
+          </div>
+        </a>
+      ))}
 
-              {/* Add New Card Button */}
-              <button
-                onClick={() => setShowAddModal(true)}
-                className="w-full bg-teal-500/20 backdrop-blur-md border border-teal-300/50 rounded-xl p-4 text-white hover:bg-teal-500/30 transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <Plus className="w-5 h-5" />
-                <span>Tambah Materi Baru</span>
-              </button>
-            </div>
-          )}
-        </div>
+      {/* Add New Card Button */}
+      <button
+        onClick={() => setShowAddModal(true)}
+        className="w-full bg-teal-500/20 backdrop-blur-md border border-teal-300/50 rounded-xl p-4 text-white hover:bg-teal-500/30 transition-all duration-300 flex items-center justify-center space-x-2"
+      >
+        <Plus className="w-5 h-5" />
+        <span>Tambah Materi Baru</span>
+      </button>
+    </div>
+  )}
+       </div>
+
       </div>
 
       {/* GitHub Button */}
