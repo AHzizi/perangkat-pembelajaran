@@ -61,6 +61,19 @@ const uudArticles: UUDArticle[] = [
   { pasal: "Struktur UUD 1945 [3]", linkText: "Link CAT", url: "https://forms.gle/5w8p5texBqGnCoCaA" },
   { pasal: "Struktur UUD 1945 [4] | Menteri dan Kedudukan DPR", linkText: "Link CAT", url: "https://forms.gle/tZCCsZFKJddf8kyw6" }
 ];
+const twkArticles: UUDArticle[] = [
+  { pasal: "1–20", linkText: "Link Google Form", url: "https://forms.gle/14y8ZoLRuhhw3RHt9" },
+  { pasal: "21–40", linkText: "Link Google Form", url: "https://forms.gle/AxBZGRdtUy4p8QBh7" },
+  { pasal: "41–60", linkText: "Link Google Form", url: "https://forms.gle/dkcTV88tZSnYiNUe8" },
+  { pasal: "61–80", linkText: "Link Google Form", url: "https://forms.gle/ST8aJbqAZac8RafP6" },
+  { pasal: "81–100", linkText: "Link Google Form", url: "https://forms.gle/QbCNkDoLEUQUeTx79" },
+  { pasal: "101–120", linkText: "Link Google Form", url: "https://forms.gle/27NEWmQvQDXfqr1x6" },
+  { pasal: "121–140", linkText: "Link Google Form", url: "https://forms.gle/wm9uG3kwRXRcGXy77" },
+  { pasal: "141–160", linkText: "Link Google Form", url: "https://forms.gle/mGtmdWNKh9tPwH9AA" },
+  { pasal: "161–180", linkText: "Link Google Form", url: "https://forms.gle/8A1ndpKfGUnzVzpH8" },
+  { pasal: "181–200", linkText: "Link Google Form", url: "https://forms.gle/riGjdWZ7mi2Bbqke7" }
+];
+
 
 const initialCards: LearningCard[] = [
   { id: '1', title: 'Tes TWK', url: 'https://tes-twk.vercel.app/', iconColor: 'text-teal-500' },
@@ -97,6 +110,7 @@ function App() {
   const [cards, setCards] = useState<LearningCard[]>(initialCards);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUUDModal, setShowUUDModal] = useState(false);
+  const [showTWKModal, setShowTWKModal] = useState(false);
   const [showCards, setShowCards] = useState(false);
   const [newCard, setNewCard] = useState({ title: '', url: '', iconColor: 'text-teal-500' });
   const [backgroundIndex, setBackgroundIndex] = useState(0);
@@ -256,21 +270,40 @@ function App() {
         href="https://github.com/ahzizi"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 left-6 z-40 px-6 py-3  rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95 bg-white/30 backdrop-blur-none"
+        className="fixed bottom-6 left-6 z-40 px-6 py-3  rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95 bg-white/30 backdrop-blur-none sm:px-6 sm:py-3 sm:text-base "
       >
         <Github className="w-5 h-5 text-white" />
         <span className="font-semibold text-white">AHzizi</span>
       </a>
+      {/* TES TWK Floating Button */}
+      <button
+        onClick={() => setShowTWKModal(true)}
+        className="fixed bottom-20 right-6 z-40 
+                  bg-gradient-to-r from-teal-500 to-sky-500 text-white 
+                  px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base 
+                  rounded-full shadow-lg hover:shadow-xl 
+                  transition-all duration-300 transform 
+                  hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95"
+      >
+        <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
+        <span className="font-semibold">TES TWK</span>
+      </button>
 
       {/* UUD Kompleks Floating Button */}
       <button
         onClick={() => setShowUUDModal(true)}
-        className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-teal-500 to-sky-500 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95"
+        className="fixed bottom-6 right-6 z-40 
+                  bg-gradient-to-r from-teal-500 to-sky-500 text-white 
+                  px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base 
+                  rounded-full shadow-lg hover:shadow-xl 
+                  transition-all duration-300 transform 
+                  hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95"
       >
-        <BookOpen className="w-5 h-5" />
+        <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
         <span className="font-semibold">UUD Kompleks</span>
       </button>
 
+    
       {/* Add Card Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
@@ -364,6 +397,48 @@ function App() {
             <div className="overflow-y-auto flex-1">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {uudArticles.map((article, index) => (
+                  <a
+                    key={index}
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-gradient-to-br from-teal-50 to-sky-50 dark:from-teal-900/20 dark:to-sky-900/20 border border-teal-200 dark:border-teal-700 rounded-lg p-4 hover:shadow-md transition-all duration-300 transform hover:scale-105"
+                  >
+                    <div className="flex items-start space-x-3">
+                      <BookOpen className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">
+                          {article.pasal}
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          {article.linkText}
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* TES TWK */}
+      {showTWKModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">TES TWK</h3>
+              <button
+                onClick={() => setShowTWKModal(false)}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+              </button>
+            </div>
+
+            <div className="overflow-y-auto flex-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {twkArticles.map((article, index) => (
                   <a
                     key={index}
                     href={article.url}
