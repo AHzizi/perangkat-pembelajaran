@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Book, Plus, X, ChevronDown, ChevronUp, Moon, Sun, BookOpen, Github } from 'lucide-react';
+import { Book, Plus, X, ChevronDown, ChevronUp, Moon, Sun, BookOpen, Github, Info } from 'lucide-react';
 
 interface LearningCard {
   id: string;
@@ -117,6 +117,7 @@ function App() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUUDModal, setShowUUDModal] = useState(false);
   const [showTWKModal, setShowTWKModal] = useState(false);
+  const [showIModal, setShowIModal] = useState(false);
   const [showCards, setShowCards] = useState(false);
   const [newCard, setNewCard] = useState({ title: '', url: '', iconColor: 'text-teal-500' });
   const [backgroundIndex, setBackgroundIndex] = useState(0);
@@ -214,6 +215,7 @@ function App() {
         {/* Greeting */}
         <h2 className="text-xl md:text-2xl font-semibold text-white/90 mb-4 drop-shadow-md">
           Halo {" "}
+
         {/*Nama Gw  */}
         <span
             className="inline-block text-transparent bg-clip-text font-bold text-2xl font-sans cursor-pointer"
@@ -235,7 +237,6 @@ function App() {
         }
         `}
         </style>
-
 
           , Belajar Apa Hari Ini ?
           <br />
@@ -311,7 +312,19 @@ function App() {
         <Github className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         <span className="font-semibold text-white">AHzizi</span>
       </a>
-
+      {/* Info */}
+       <button
+        onClick={() => setShowIModal(true)}
+        className="fixed bottom-20 left-6 z-40 
+                  px-3 py-2 text-sm sm:px-6 sm:py-3 sm:text-base 
+                  bg-white/30 backdrop-blur-none
+                  rounded-full shadow-lg hover:shadow-xl 
+                  transition-all duration-300 transform 
+                  hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95"
+      >
+        <Info className="w-4 h-4 sm:w-5 sm:h-5 italic text-white" />
+        
+      </button>
       {/* TES TWK Floating Button */}
       <button
         onClick={() => setShowTWKModal(true)}
@@ -498,6 +511,31 @@ function App() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Info Modal */}
+      {showIModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white pt-6">TENTANG WEB INI</h3>
+              <button
+                onClick={() => setShowIModal(false)}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+              </button>
+            </div>
+            <h1 className='text-white pb-7'>
+              Alasan Gw Buat Projek Ini Untuk Memudahkan Gw Belajar Dimanapun dan Kapanpun, Doakan Gw Temen-temen Semoga Dimudahkan Dalan Urusan Apapun, Terutama Semoga Cita-cita Gw Terwujud, Pengen Jadi Perangkat Desa🤲🤲🤲 Aamiin 😁 Seiring Waktu Soal-soal Bakal Gw Update.
+              <br />
+              <span className='block w-full border-t border-white my-4'></span>
+    
+              Web Ini Dibuat Penuh 💙, Semangat Serta Diiringi Doa Dengan Berharap Penuh Apa Yang Diharapkan Semuannya Terwujud, Aamiin Aamiin Ya Robbal Alamin🤲🤲🤲
+              
+            </h1>
           </div>
         </div>
       )}
