@@ -214,12 +214,29 @@ function App() {
         {/* Greeting */}
         <h2 className="text-xl md:text-2xl font-semibold text-white/90 mb-4 drop-shadow-md">
           Halo {" "}
-           <span className="inline-block bg-gradient-to-tl from-sky-500 to-teal-400 
-            text-transparent bg-clip-text cursor-pointer 
-            hover:bg-gradient-to-tr hover:from-pink-400 hover:to-purple-400 hover:text-transparent hover:bg-clip-text 
-            transition-all duration-500 ease-in-out hover:animate-[gradient-shift_1s_ease-in-out_forwards]">
-            Miftakul Azizi
-          </span>
+        {/*Nama Gw  */}
+        <span
+            className="inline-block text-transparent bg-clip-text font-bold text-2xl font-sans cursor-pointer"
+            style={{
+              backgroundImage:
+                "linear-gradient(270deg, #ec4899, #facc15, #3b82f6, #22c55e, #f43f5e)",
+              backgroundSize: "400% 400%",
+              animation: "slow-gradient 8s ease infinite"
+            }}
+          >
+            <a href="https://www.instagram.com/miftakulazizi/" target="_blank" rel="noopener noreferrer">Miftakul Azizi</a>
+        </span>
+        <style>
+        {`
+        @keyframes slow-gradient {
+          0%   { background-position: 0% 50%; }
+          50%  { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        `}
+        </style>
+
+
           , Belajar Apa Hari Ini ?
           <br />
           <br />
