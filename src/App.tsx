@@ -80,18 +80,24 @@ const initialCards: LearningCard[] = [
   { id: '2', title: 'Tes UUD 1945', url: 'https://tes-uud.vercel.app/', iconColor: 'text-sky-500' },
   { id: '3', title: 'Tes UU Desa', url: 'https://tes-uu-desa.vercel.app/', iconColor: 'text-orange-500' },
   { id: '4', title: 'Tes Ukuran Tanah', url: 'https://tanah-kas-desa-1.vercel.app/', iconColor: 'text-green-500' },
-  { id: '5', title: 'Try Out 1', url: 'https://try-out-1.vercel.app/', iconColor: 'text-purple-500' }
+  { id: '5', title: 'Try Out 1', url: 'https://try-out-1.vercel.app/', iconColor: 'text-purple-500' },
+  { id: '6', title: 'TES PANCASILA', url: 'https://tes-pancasila.netlify.app/', iconColor: 'text-rose-500' }
 ];
 
 const backgroundImages = [
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908167/b8f1180a76a796c38755e93c7fbf6d19_hfbdtc.jpg',
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1755051436/BG_Beachside_Night_waifu2x_art_noise3_scale_xlb95f.png',
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1755051429/BG_Beachside_Sunset_waifu2x_art_noise3_scale_q47ota.png',
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1755051428/BG_Beachside_waifu2x_art_noise3_scale_mghu0e.png',
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1755051406/BG_StudentRoom_Night2_waifu2x_art_noise3_scale_osq2sc.png',
   'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754907649/1350248_odczfx.png',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754907639/BG_Atelier_Night_waifu2x_art_noise3_scale_xeul5y.png',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754907635/4b2e55b89740491cd74ce5908ee3d4a6_bem4zh.jpg',
   'https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908165/a943d53cea39fefb6e2ea6d8d7a4406f_gwvp2i.jpg',
-  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908167/8df6c58da5e889db0ff9b8e0151bf7a3_kukqjh.jpg',
-  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908167/b8f1180a76a796c38755e93c7fbf6d19_hfbdtc.jpg'
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908167/8df6c58da5e889db0ff9b8e0151bf7a3_kukqjh.jpg'
+  
 ];
 
 const colorOptions = [
@@ -207,7 +213,14 @@ function App() {
 
         {/* Greeting */}
         <h2 className="text-xl md:text-2xl font-semibold text-white/90 mb-4 drop-shadow-md">
-          Halo Miftakul Azizi, Belajar Apa Hari Ini ?
+          Halo {" "}
+           <span className="inline-block bg-gradient-to-tl from-sky-500 to-teal-400 
+            text-transparent bg-clip-text cursor-pointer 
+            hover:bg-gradient-to-tr hover:from-pink-400 hover:to-purple-400 hover:text-transparent hover:bg-clip-text 
+            transition-all duration-500 ease-in-out hover:animate-[gradient-shift_1s_ease-in-out_forwards]">
+            Miftakul Azizi
+          </span>
+          , Belajar Apa Hari Ini ?
           <br />
           <br />
           Have a Great Day :)
@@ -270,11 +283,18 @@ function App() {
         href="https://github.com/ahzizi"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 left-6 z-40 px-6 py-3  rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95 bg-white/30 backdrop-blur-none sm:px-6 sm:py-3 sm:text-base "
+        className="fixed bottom-6 left-6 z-40 
+          px-4 py-2 text-sm 
+          rounded-full shadow-lg hover:shadow-xl 
+          transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 
+          flex items-center space-x-2 active:scale-95 
+          bg-white/30 backdrop-blur-none
+          sm:px-6 sm:py-3 sm:text-base"
       >
-        <Github className="w-5 h-5 text-white" />
+        <Github className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         <span className="font-semibold text-white">AHzizi</span>
       </a>
+
       {/* TES TWK Floating Button */}
       <button
         onClick={() => setShowTWKModal(true)}
