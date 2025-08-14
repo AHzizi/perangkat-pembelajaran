@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Book, Plus, X, ChevronDown, ChevronUp, Moon, Sun, BookOpen, Github, Info } from 'lucide-react';
+import { Book, Plus, X, ChevronDown, ChevronUp, Moon, Sun, BookOpen, Github, Info, Menu } from 'lucide-react';
+import {TypingText} from './components/TypingText'; // Assuming you have a TypingText component
 
 interface LearningCard {
   id: string;
@@ -123,6 +124,7 @@ function App() {
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [manualTheme, setManualTheme] = useState<boolean | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Update time every second
   useEffect(() => {
@@ -197,13 +199,7 @@ function App() {
         <div className={`absolute inset-0 ${isDarkMode ? 'bg-black/60' : 'bg-black/30'} transition-colors duration-500`} />
       </div>
 
-      {/* Theme Toggle Button */}
-      <button
-        onClick={toggleTheme}
-        className="fixed top-4 right-4 z-50 p-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 hover:bg-white/30 transition-all duration-300 text-white"
-      >
-        {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-      </button>
+
 
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 text-center">
@@ -221,7 +217,7 @@ function App() {
             className="inline-block text-transparent bg-clip-text font-bold text-2xl font-sans cursor-pointer"
             style={{
               backgroundImage:
-                "linear-gradient(270deg, #ec4899, #facc15, #3b82f6, #22c55e, #f43f5e)",
+                "linear-gradient(270deg, #facc15, #f43f5e, #ec4899, #22c55e, #3b82f6)",
               backgroundSize: "400% 400%",
               animation: "slow-gradient 8s ease infinite"
             }}
@@ -241,7 +237,7 @@ function App() {
           , Belajar Apa Hari Ini ?
           <br />
           <br />
-          Have a Great Day :)
+          <TypingText />
         </h2>
 
         {/* Time Display */}
@@ -323,35 +319,83 @@ function App() {
                   hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95"
       >
         <Info className="w-4 h-4 sm:w-5 sm:h-5 italic text-white" />
-        
       </button>
-      {/* TES TWK Floating Button */}
+      
+      {/* Tombol Hamburger */}
       <button
-        onClick={() => setShowTWKModal(true)}
-        className="fixed bottom-20 right-6 z-40 
-                  bg-gradient-to-r from-teal-500 to-sky-500 text-white 
-                  px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base 
-                  rounded-full shadow-lg hover:shadow-xl 
-                  transition-all duration-300 transform 
-                  hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95"
+        onClick={() => setIsOpen(true)}
+        className="fixed top-6 right-6 z-50 bg-white/20 backdrop-blur-md p-2 rounded-full shadow-lg hover:bg-white/30 transition-all duration-300"
       >
-        <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
-        <span className="font-semibold">TES TWK</span>
+        <Menu className="w-6 h-6 text-white" />
       </button>
 
-      {/* UUD Kompleks Floating Button */}
-      <button
-        onClick={() => setShowUUDModal(true)}
-        className="fixed bottom-6 right-6 z-40 
-                  bg-gradient-to-r from-teal-500 to-sky-500 text-white 
-                  px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base 
-                  rounded-full shadow-lg hover:shadow-xl 
-                  transition-all duration-300 transform 
-                  hover:scale-110 hover:-translate-y-1 flex items-center space-x-2 active:scale-95"
+      {/* Overlay Blur (klik untuk menutup) */}
+      {isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+        />
+      )}
+
+      {/* Sidebar */}
+      <div
+        className={`fixed top-0 right-0 h-full w-72 bg-white/20 backdrop-blur-lg border-l border-white/30 shadow-xl z-50 transform transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
-        <span className="font-semibold">UUD Kompleks</span>
-      </button>
+        {/* Header Sidebar */}
+        <div className="flex items-center justify-between p-4 border-b border-white/30">
+          <h2 className="text-lg font-bold text-white">MATERI</h2>
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className=" top-4 right-4 z-50 p-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 hover:bg-white/30 transition-all duration-300 text-white"
+          >
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button> 
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2 hover:bg-white/30 rounded-full transition"
+          >
+            <X className="w-5 h-5 text-white" />
+          </button>
+        </div>
+
+        {/* Konten Sidebar */}
+        <div className="p-4 space-y-4">
+
+          {/* Tombol TES TWK */}
+          <button
+            onClick={() => {
+              setShowTWKModal(true);
+              setIsOpen(false);
+            }}
+            className="w-full bg-gradient-to-r from-teal-500 to-sky-500 text-white 
+                      px-4 py-3 rounded-lg shadow-lg hover:shadow-xl 
+                      text-sm sm:px-6 sm:py-3 sm:text-base
+                      transition-all duration-300 flex items-center justify-center space-x-2"
+          >
+            <BookOpen className="w-5 h-5" />
+            <span className="font-semibold">TES TWK</span>
+          </button>
+
+          {/* Tombol UUD Kompleks */}
+          <button
+            onClick={() => {
+              setShowUUDModal(true);
+              setIsOpen(false);
+            }}
+            className="w-full bg-gradient-to-r from-teal-500 to-sky-500 text-white 
+                      px-4 py-3 rounded-lg shadow-lg hover:shadow-xl 
+                      text-sm sm:px-6 sm:py-3 sm:text-base
+                      transition-all duration-300 flex items-center justify-center space-x-2"
+          >
+            <BookOpen className="w-5 h-5" />
+            <span className="font-semibold">UUD Kompleks</span>
+          </button>
+        </div>
+      </div>
+
 
     
       {/* Add Card Modal */}
