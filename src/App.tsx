@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Book, Plus, X, ChevronDown, ChevronUp, Moon, Sun, BookOpen, Github, Info, Menu } from 'lucide-react';
-import {TypingText} from './components/TypingText'; // Assuming you have a TypingText component
+import TypingText from './components/TypingText';
+
 
 interface LearningCard {
   id: string;
