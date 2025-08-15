@@ -76,6 +76,14 @@ const twkArticles: UUDArticle[] = [
   { pasal: "181–200", linkText: "Link Google Form", url: "https://forms.gle/riGjdWZ7mi2Bbqke7" }
 ];
 
+const bahasaIndonesia: UUDArticle[] = [
+  { pasal: "1–20", linkText: "Link Google Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSeg8C2ftC9_Ik7raMFT-BkE8ngJxAI65iML07iUadruWoXYxg/viewform" },
+  { pasal: "21–40", linkText: "Link Google Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSfc-AbPQ6Xmtr3ExItmeUA1DOUHjY-D6oDel527VZA2kuD6Wg/viewform" },
+  { pasal: "41–60", linkText: "Link Google Form", url: "https://docs.google.com/forms/d/e/1FAIpQLScp8RrISyZdRhvrb62Azw5paYK8zp3l4WSBoMKBzKn7vqPbnQ/viewform" },
+  { pasal: "61–80", linkText: "Link Google Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSd3VBekjSYxY22qeWI2aDKDpc_o4D__jYskHl4_cQ8TfZPJfw/viewform?usp=sf_link" },
+  { pasal: "81–100", linkText: "Link Google Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSfIYld7r0fnn-lSCqTVQt3ht4UMiZXVdduneWtl7NvGkB7XOg/viewform?usp=sf_link" },
+];
+
 
 const initialCards: LearningCard[] = [
   { id: '1', title: 'Tes TWK', url: 'https://tes-twk.vercel.app/', iconColor: 'text-teal-500' },
@@ -83,7 +91,8 @@ const initialCards: LearningCard[] = [
   { id: '3', title: 'Tes UU Desa', url: 'https://tes-uu-desa.vercel.app/', iconColor: 'text-orange-500' },
   { id: '4', title: 'Tes Ukuran Tanah', url: 'https://tanah-kas-desa-1.vercel.app/', iconColor: 'text-green-500' },
   { id: '5', title: 'Try Out 1', url: 'https://try-out-1.vercel.app/', iconColor: 'text-purple-500' },
-  { id: '6', title: 'TES PANCASILA', url: 'https://tes-pancasila.netlify.app/', iconColor: 'text-rose-500' }
+  { id: '6', title: 'TES PANCASILA', url: 'https://tes-pancasila.netlify.app/', iconColor: 'text-rose-500' },
+  { id: '7', title: 'TES TWK INDO II', url: 'https://tes-twk-indonesia.netlify.app/', iconColor: 'text-violet-500' }
 ];
 
 const backgroundImages = [
@@ -119,6 +128,7 @@ function App() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUUDModal, setShowUUDModal] = useState(false);
   const [showTWKModal, setShowTWKModal] = useState(false);
+  const [showIndoModal, setShowIndoModal] = useState(false);
   const [showIModal, setShowIModal] = useState(false);
   const [showCards, setShowCards] = useState(false);
   const [newCard, setNewCard] = useState({ title: '', url: '', iconColor: 'text-teal-500' });
@@ -248,47 +258,47 @@ function App() {
 
         {/* Learning Cards Dropdown */}
        <div
-  className={`w-full max-w-md mb-8 ${
-    showCards ? "mb-[120px] sm:mb-8" : "mb-8"
-  }`}
->
-  <button
-    onClick={() => setShowCards(!showCards)}
-    className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 text-white hover:bg-white/30 transition-all duration-300 flex items-center justify-between"
-  >
-    <span className="font-semibold">Materi Pembelajaran</span>
-    {showCards ? <ChevronUp /> : <ChevronDown />}
-  </button>
-
-  {showCards && (
-    <div className="mt-4 space-y-3 animate-in slide-in-from-top-2 duration-300">
-      {cards.map((card) => (
-        <a
-          key={card.id}
-          href={card.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+          className={`w-full max-w-md mb-8 ${
+            showCards ? "mb-[120px] sm:mb-8" : "mb-8"
+          }`}
         >
-          <div className="flex items-center space-x-4">
-            <Book
-              className={`w-6 h-6 ${card.iconColor} transition-transform duration-300 hover:scale-110`}
-            />
-            <span className="text-white font-medium">{card.title}</span>
-          </div>
-        </a>
-      ))}
+        <button
+          onClick={() => setShowCards(!showCards)}
+          className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 text-white hover:bg-white/30 transition-all duration-300 flex items-center justify-between"
+        >
+          <span className="font-semibold">Materi Pembelajaran</span>
+          {showCards ? <ChevronUp /> : <ChevronDown />}
+        </button>
 
-      {/* Add New Card Button */}
-      <button
-        onClick={() => setShowAddModal(true)}
-        className="w-full bg-teal-500/20 backdrop-blur-md border border-teal-300/50 rounded-xl p-4 text-white hover:bg-teal-500/30 transition-all duration-300 flex items-center justify-center space-x-2"
-      >
-        <Plus className="w-5 h-5" />
-        <span>Tambah Materi Baru</span>
-      </button>
-    </div>
-  )}
+        {showCards && (
+          <div className="mt-4 space-y-3 animate-in slide-in-from-top-2 duration-300">
+            {cards.map((card) => (
+              <a
+                key={card.id}
+                href={card.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center space-x-4">
+                  <Book
+                    className={`w-6 h-6 ${card.iconColor} transition-transform duration-300 hover:scale-110`}
+                  />
+                  <span className="text-white font-medium">{card.title}</span>
+                </div>
+              </a>
+            ))}
+
+            {/* Add New Card Button */}
+            <button
+              onClick={() => setShowAddModal(true)}
+              className="w-full bg-teal-500/20 backdrop-blur-md border border-teal-300/50 rounded-xl p-4 text-white hover:bg-teal-500/30 transition-all duration-300 flex items-center justify-center space-x-2"
+            >
+              <Plus className="w-5 h-5" />
+              <span>Tambah Materi Baru</span>
+            </button>
+          </div>
+        )}
        </div>
 
       </div>
@@ -393,6 +403,21 @@ function App() {
           >
             <BookOpen className="w-5 h-5" />
             <span className="font-semibold">UUD Kompleks</span>
+          </button>
+          
+          {/* Tombol Bahasa Indonesia */}
+          <button
+            onClick={() => {
+              setShowIndoModal(true);
+              setIsOpen(false);
+            }}
+            className="w-full bg-gradient-to-r from-teal-500 to-sky-500 text-white 
+                      px-4 py-3 rounded-lg shadow-lg hover:shadow-xl 
+                      text-sm sm:px-6 sm:py-3 sm:text-base
+                      transition-all duration-300 flex items-center justify-center space-x-2"
+          >
+            <BookOpen className="w-5 h-5" />
+            <span className="font-semibold">BAHASA INDOESIA I</span>
           </button>
         </div>
       </div>
@@ -534,6 +559,49 @@ function App() {
             <div className="overflow-y-auto flex-1">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {twkArticles.map((article, index) => (
+                  <a
+                    key={index}
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-gradient-to-br from-teal-50 to-sky-50 dark:from-teal-900/20 dark:to-sky-900/20 border border-teal-200 dark:border-teal-700 rounded-lg p-4 hover:shadow-md transition-all duration-300 transform hover:scale-105"
+                  >
+                    <div className="flex items-start space-x-3">
+                      <BookOpen className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">
+                          {article.pasal}
+                        </h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          {article.linkText}
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TES BAHASA INDONESIA */}
+        {showIndoModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">TES BAHASA INDONESIA</h3>
+              <button
+                onClick={() => setShowIndoModal(false)}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+              </button>
+            </div>
+
+            <div className="overflow-y-auto flex-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {bahasaIndonesia.map((article, index) => (
                   <a
                     key={index}
                     href={article.url}
