@@ -76,6 +76,24 @@ const twkArticles: UUDArticle[] = [
   { pasal: "181–200", linkText: "Link Google Form", url: "https://forms.gle/riGjdWZ7mi2Bbqke7" }
 ];
 
+const twkIIArticles: UUDArticle[] = [
+  { pasal: "BAGIAN I", linkText: "Link Google Form", url: "https://forms.gle/T61KfhejC66fXZFy7" },
+  { pasal: "BAGIAN II", linkText: "Link Google Form", url: "https://forms.gle/x4udhxedvguDLqSq8" },
+  { pasal: "BAGIAN III", linkText: "Link Google Form", url: "https://forms.gle/1bfC5y6DkRzcZKao9" },
+  { pasal: "BAGIAN IV", linkText: "Link Google Form", url: "https://forms.gle/mtg4HbYUTsn6nziL9" },
+  { pasal: "BAGIAN V", linkText: "Link Google Form", url: "https://forms.gle/MyHRoHsgReZkfagE7" },
+  { pasal: "BAGIAN VI", linkText: "Link Google Form", url: "https://forms.gle/fd4jq4EZ4ymkbFSz6" },
+  { pasal: "BAGIAN VII", linkText: "Link Google Form", url: "https://forms.gle/EcJ6bYXRNnfs25kS9" },
+  { pasal: "BAGIAN VIII", linkText: "Link Google Form", url: "https://forms.gle/vaEFRj7goFeuTJRFA" },
+  { pasal: "BAGIAN IX", linkText: "Link Google Form", url: "https://forms.gle/6P6JExoycBLoMcKS8" },
+  { pasal: "BAGIAN X", linkText: "Link Google Form", url: "https://forms.gle/kiBHg9Sci1PfBRcF6" },
+  { pasal: "PERUBAHAN UU DESA", linkText: "Link Google Form", url: "https://forms.gle/ydNFuiPV72WsXh17A" },
+  { pasal: "Persyaratan Calon Anggota Badan Permusyawaratan Desa", linkText: "Link Google Form", url: "https://forms.gle/zG8oCgY7LV9meKib8" },
+  { pasal: "BAGIAN XIII", linkText: "Link Google Form", url: "https://forms.gle/Qe8oriVwQnw8VztE8" },
+  { pasal: "BAGIAN XIV", linkText: "Link Google Form", url: "https://forms.gle/HBfr966BUecwj832A" },
+  { pasal: "BAGIAN XV", linkText: "Link Google Form", url: "https://forms.gle/7GVtdgWSH6mpVKm7A" }
+];
+
 const bahasaIndonesia: UUDArticle[] = [
   { pasal: "1–20", linkText: "Link Google Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSeg8C2ftC9_Ik7raMFT-BkE8ngJxAI65iML07iUadruWoXYxg/viewform" },
   { pasal: "21–40", linkText: "Link Google Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSfc-AbPQ6Xmtr3ExItmeUA1DOUHjY-D6oDel527VZA2kuD6Wg/viewform" },
@@ -130,6 +148,7 @@ function App() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUUDModal, setShowUUDModal] = useState(false);
   const [showTWKModal, setShowTWKModal] = useState(false);
+  const [showTWKIIModal, setShowTWKIIModal] = useState(false);
   const [showIndoModal, setShowIndoModal] = useState(false);
   const [showIModal, setShowIModal] = useState(false);
   const [showCards, setShowCards] = useState(false);
@@ -421,6 +440,21 @@ function App() {
             <BookOpen className="w-5 h-5" />
             <span className="font-semibold">BAHASA INDOESIA I</span>
           </button>
+
+          {/* Tombol UU DESA */}
+          <button
+            onClick={() => {
+              setShowTWKIIModal(true);
+              setIsOpen(false);
+            }}
+            className="w-full bg-gradient-to-r from-teal-500 to-sky-500 text-white 
+                      px-4 py-3 rounded-lg shadow-lg hover:shadow-xl 
+                      text-sm sm:px-6 sm:py-3 sm:text-base
+                      transition-all duration-300 flex items-center justify-center space-x-2"
+          >
+            <BookOpen className="w-5 h-5" />
+            <span className="font-semibold">TES UU DESA</span>
+          </button>
         </div>
       </div>
 
@@ -628,6 +662,49 @@ function App() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* TES UU DESA */}
+      {showTWKIIModal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">UU DESA Kompleks</h3>
+            <button
+              onClick={() => setShowTWKIIModal(false)}
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <X className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            </button>
+          </div>
+
+          <div className="overflow-y-auto flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {twkIIArticles.map((article, index) => (
+                <a
+                  key={index}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-gradient-to-br from-teal-50 to-sky-50 dark:from-teal-900/20 dark:to-sky-900/20 border border-teal-200 dark:border-teal-700 rounded-lg p-4 hover:shadow-md transition-all duration-300 transform hover:scale-105"
+                >
+                  <div className="flex items-start space-x-3">
+                    <BookOpen className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">
+                        {article.pasal}
+                      </h4>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        {article.linkText}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
       )}
 
       {/* Info Modal */}
