@@ -112,6 +112,7 @@ const initialCards: LearningCard[] = [
   { id: '6', title: 'TES PANCASILA', url: 'https://tes-pancasila.netlify.app/', iconColor: 'text-rose-500' },
   { id: '7', title: 'TES TWK INDO II', url: 'https://tes-twk-indonesia.netlify.app/', iconColor: 'text-violet-500' },
   { id: '8', title: 'TES TWK II', url: 'https://tes-twk-ii.netlify.app/', iconColor: 'text-sky-500' },
+  { id: '9', title: 'TRY OUT 4', url: 'https://try-out-4.netlify.app/', iconColor: 'text-indigo-500' }
 
 ];
 
