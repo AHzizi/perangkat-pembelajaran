@@ -102,6 +102,29 @@ const bahasaIndonesia: UUDArticle[] = [
   { pasal: "81–100", linkText: "Link Google Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSfIYld7r0fnn-lSCqTVQt3ht4UMiZXVdduneWtl7NvGkB7XOg/viewform?usp=sf_link" },
 ];
 
+const pemDes: UUDArticle[] = [
+  { pasal: "1–20", linkText: "Link Google Form", url: "https://forms.gle/d2sw7H4KSPyiK6bo6" },
+  { pasal: "21–40", linkText: "Link Google Form", url: "https://forms.gle/avQ6en9uuyFCU1bdA" },
+  { pasal: "41–60", linkText: "Link Google Form", url: "https://forms.gle/3MTHebL69S9tZDbf6" },
+  { pasal: "61–80", linkText: "Link Google Form", url: "https://forms.gle/VdSqsrceXeF9sf5Q9" },
+  { pasal: "81–100", linkText: "Link Google Form", url: "https://forms.gle/SMnkiHgjZrf1DnQb6" },
+  { pasal: "101–120", linkText: "Link Google Form", url: "https://forms.gle/pNGKRhvPRNc416wx5" },
+  { pasal: "121–140", linkText: "Link Google Form", url: "https://forms.gle/zn4oaVLgEFzwtQQn6" },
+  { pasal: "141–160", linkText: "Link Google Form", url: "https://forms.gle/QvPDza9M1kzgPxUS6" },
+  { pasal: "161–180", linkText: "Link Google Form", url: "https://forms.gle/k6Bz3Y8kDkik7Wv3A" },
+  { pasal: "181–200", linkText: "Link Google Form", url: "https://forms.gle/xTcVazoeB8Tz5gnU7" },
+  { pasal: "201-210", linkText: "Link Google Form", url: "https://forms.gle/2cFqwfPVwyAvtR3bA" },
+  { pasal: "211-220", linkText: "Link Google Form", url: "https://forms.gle/fks1EkSXTtUiP62U9" },
+  { pasal: "221-230", linkText: "Link Google Form", url: "https://forms.gle/hi2topNqDzRRA7Ht6" },
+  { pasal: "231-240", linkText: "Link Google Form", url: "https://forms.gle/qdmdzVnrERRamQBbA" },
+  { pasal: "241-250", linkText: "Link Google Form", url: "https://forms.gle/B9dzgcFwTZpW3VHY8" },
+  { pasal: "251-270", linkText: "Link Google Form", url: "https://forms.gle/5gdku3D9WcRcD8cXA" },
+  { pasal: "271-290", linkText: "Link Google Form", url: "https://forms.gle/mjZLUcSBT3pbvrK8A" },
+  { pasal: "291-310", linkText: "Link Google Form", url: "https://forms.gle/JpzWCrmaPxoEPo6T8" },
+  { pasal: "311-330", linkText: "Link Google Form", url: "https://forms.gle/ZdM9vwR6KVG3Hi2x6" },
+  { pasal: "331-350", linkText: "Link Google Form", url: "https://forms.gle/9QBVP2GxZwRnSu3T6" }
+]
+
 
 const initialCards: LearningCard[] = [
   { id: '1', title: 'Tes TWK', url: 'https://tes-twk.vercel.app/', iconColor: 'text-teal-500' },
@@ -152,6 +175,7 @@ function App() {
   const [showTWKIIModal, setShowTWKIIModal] = useState(false);
   const [showIndoModal, setShowIndoModal] = useState(false);
   const [showIModal, setShowIModal] = useState(false);
+  const [showPemDesModal, setShowPemDesModal] = useState(false);
   const [showCards, setShowCards] = useState(false);
   const [newCard, setNewCard] = useState({ title: '', url: '', iconColor: 'text-teal-500' });
   const [backgroundIndex, setBackgroundIndex] = useState(0);
@@ -456,6 +480,21 @@ function App() {
             <BookOpen className="w-5 h-5" />
             <span className="font-semibold">TES UU DESA</span>
           </button>
+
+          {/* Tombol PEMDES */}
+          <button
+            onClick={() => {
+              setShowPemDesModal(true);
+              setIsOpen(false);
+            }}
+            className="w-full bg-gradient-to-r from-teal-500 to-sky-500 text-white 
+                      px-4 py-3 rounded-lg shadow-lg hover:shadow-xl 
+                      text-sm sm:px-6 sm:py-3 sm:text-base
+                      transition-all duration-300 flex items-center justify-center space-x-2"
+          >
+            <BookOpen className="w-5 h-5" />
+            <span className="font-semibold">PEMERINTAH DESA</span>
+          </button>
         </div>
       </div>
 
@@ -682,6 +721,49 @@ function App() {
           <div className="overflow-y-auto flex-1">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {twkIIArticles.map((article, index) => (
+                <a
+                  key={index}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-gradient-to-br from-teal-50 to-sky-50 dark:from-teal-900/20 dark:to-sky-900/20 border border-teal-200 dark:border-teal-700 rounded-lg p-4 hover:shadow-md transition-all duration-300 transform hover:scale-105"
+                >
+                  <div className="flex items-start space-x-3">
+                    <BookOpen className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">
+                        {article.pasal}
+                      </h4>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        {article.linkText}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      )}
+
+      {/* TES PEMDES */}
+      {showPemDesModal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">PEMERINTAH DESA</h3>
+            <button
+              onClick={() => setShowPemDesModal(false)}
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <X className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            </button>
+          </div>
+
+          <div className="overflow-y-auto flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {pemDes.map((article, index) => (
                 <a
                   key={index}
                   href={article.url}
