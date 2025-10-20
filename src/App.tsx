@@ -125,6 +125,31 @@ const pemDes: UUDArticle[] = [
   { pasal: "331-350", linkText: "Link Google Form", url: "https://forms.gle/9QBVP2GxZwRnSu3T6" }
 ]
 
+const tryOut12: UUDArticle[] = [
+  { pasal: "Try Out 1", linkText: "Soal 1–10", url: "https://forms.gle/zDKAAq4XoPCYC2j46" },
+  { pasal: "Try Out 1", linkText: "Soal 11–20", url: "https://forms.gle/vFtoBmgpVNvmaQBB6" },
+  { pasal: "Try Out 1", linkText: "Soal 21–30", url: "https://forms.gle/roXcrnQ2FcFTJW9S9" },
+  { pasal: "Try Out 1", linkText: "Soal 31–40", url: "https://forms.gle/nvgiQcs8rfQouoDM9" },
+  { pasal: "Try Out 1", linkText: "Soal 41–50", url: "https://forms.gle/WfnPNkc7XPnnLXLLA" },
+  { pasal: "Try Out 1", linkText: "Soal 51–60", url: "https://forms.gle/5r5g7SFn31HEADJq5" },
+  { pasal: "Try Out 1", linkText: "Soal 61–70", url: "https://forms.gle/J1uxtDYNRzr7VgjV6" },
+  { pasal: "Try Out 1", linkText: "Soal 71–80", url: "https://forms.gle/LTNmWh9W5WvbvLbh9" },
+  { pasal: "Try Out 1", linkText: "Soal 81–90", url: "https://forms.gle/EERahekSv4T6HJh18" },
+  { pasal: "Try Out 1", linkText: "Soal 91–100", url: "https://forms.gle/aJzJPweuUn689E4q8" },
+
+  { pasal: "Try Out 2", linkText: "Soal 1–10", url: "https://forms.gle/HndmgfJLfhSBXcu1A" },
+  { pasal: "Try Out 2", linkText: "Soal 11–20", url: "https://forms.gle/3WBsy1Hqx6YjcdBa9" },
+  { pasal: "Try Out 2", linkText: "Soal 21–30", url: "https://forms.gle/VkSYp5uGJVQ2WGHp8" },
+  { pasal: "Try Out 2", linkText: "Soal 31–40", url: "https://forms.gle/uA1hPf5HWAJ3Mz4C9" },
+  { pasal: "Try Out 2", linkText: "Soal 41–50", url: "https://forms.gle/3vouzPBjkQb2UTfFA" },
+  { pasal: "Try Out 2", linkText: "Soal 51–60", url: "https://forms.gle/wv7PunLN1HQLKbM69" },
+  { pasal: "Try Out 2", linkText: "Soal 61–70", url: "https://forms.gle/EfBtLuyeq5XJKoLLA" },
+  { pasal: "Try Out 2", linkText: "Soal 71–80", url: "https://forms.gle/2Q8u1kNQNmwqHgH5A" },
+  { pasal: "Try Out 2", linkText: "Soal 81–90", url: "https://forms.gle/KiAwJgbiMgF4SoEj6" },
+  { pasal: "Try Out 2", linkText: "Soal 91–100", url: "https://forms.gle/jjr5YyXw1L2JmKJU7" }
+];
+
+
 
 const initialCards: LearningCard[] = [
   { id: '1', title: 'Tes TWK', url: 'https://tes-twk.vercel.app/', iconColor: 'text-teal-500' },
@@ -176,6 +201,7 @@ function App() {
   const [showIndoModal, setShowIndoModal] = useState(false);
   const [showIModal, setShowIModal] = useState(false);
   const [showPemDesModal, setShowPemDesModal] = useState(false);
+  const [showTryOut12Modal, setshowTryOut12Modal] = useState(false);
   const [showCards, setShowCards] = useState(false);
   const [newCard, setNewCard] = useState({ title: '', url: '', iconColor: 'text-teal-500' });
   const [backgroundIndex, setBackgroundIndex] = useState(0);
@@ -262,7 +288,7 @@ function App() {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 text-center">
         {/* Title */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 drop-shadow-lg">
-          Perangkat Pembelajaran Perangkat Desa
+          Perangkat Pembelajaran Tes Perangkat Desa
         </h1>
 
         {/* Greeting */}
@@ -494,6 +520,21 @@ function App() {
           >
             <BookOpen className="w-5 h-5" />
             <span className="font-semibold">PEMERINTAH DESA</span>
+          </button>
+
+          {/* Tombol Try Out 1 2 */}
+          <button
+            onClick={() => {
+              setshowTryOut12Modal(true);
+              setIsOpen(false);
+            }}
+            className="w-full bg-gradient-to-r from-teal-500 to-sky-500 text-white 
+                      px-4 py-3 rounded-lg shadow-lg hover:shadow-xl 
+                      text-sm sm:px-6 sm:py-3 sm:text-base
+                      transition-all duration-300 flex items-center justify-center space-x-2"
+          >
+            <BookOpen className="w-5 h-5" />
+            <span className="font-semibold">TRY OUT 1 & 2</span>
           </button>
         </div>
       </div>
@@ -764,6 +805,49 @@ function App() {
           <div className="overflow-y-auto flex-1">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {pemDes.map((article, index) => (
+                <a
+                  key={index}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-gradient-to-br from-teal-50 to-sky-50 dark:from-teal-900/20 dark:to-sky-900/20 border border-teal-200 dark:border-teal-700 rounded-lg p-4 hover:shadow-md transition-all duration-300 transform hover:scale-105"
+                >
+                  <div className="flex items-start space-x-3">
+                    <BookOpen className="w-5 h-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">
+                        {article.pasal}
+                      </h4>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        {article.linkText}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      )}
+
+      {/* TES TRY OYT 1 & 2 */}
+      {showTryOut12Modal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">TRY OUT 1 & 2</h3>
+            <button
+              onClick={() => setshowTryOut12Modal(false)}
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <X className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+            </button>
+          </div>
+
+          <div className="overflow-y-auto flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {tryOut12.map((article, index) => (
                 <a
                   key={index}
                   href={article.url}
