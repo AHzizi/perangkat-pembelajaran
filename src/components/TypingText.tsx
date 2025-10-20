@@ -8,6 +8,7 @@ export default function TypingText() {
     "You are amazing!",
     "Believe in yourself!",
     "Make today count!",
+    "Keep Never Tired Learning!",
 
   ];
 
