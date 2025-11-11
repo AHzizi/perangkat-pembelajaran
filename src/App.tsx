@@ -152,33 +152,35 @@ const tryOut12: UUDArticle[] = [
 
 
 const initialCards: LearningCard[] = [
-  { id: '1', title: 'Tes TWK', url: 'https://tes-twk.vercel.app/', iconColor: 'text-teal-500' },
-  { id: '2', title: 'Tes UUD 1945', url: 'https://tes-uud.vercel.app/', iconColor: 'text-sky-500' },
-  { id: '3', title: 'Tes UU Desa', url: 'https://tes-uu-desa.vercel.app/', iconColor: 'text-orange-500' },
+  { id: '1', title: 'TWK TKD TIU I', url: 'https://twk-tkd-tiu-i.netlify.app/', iconColor: 'text-teal-500' },
+  { id: '2', title: 'TWK TKD TIU II', url: 'https://twk-tkd-tiu-ii.netlify.app/', iconColor: 'text-sky-500' },
+  { id: '3', title: 'TWK TKD TIU III', url: 'https://twk-tkd-tiu-iii.netlify.app/', iconColor: 'text-orange-500' },
   { id: '4', title: 'Tes Ukuran Tanah', url: 'https://tanah-kas-desa-1.vercel.app/', iconColor: 'text-green-500' },
   { id: '5', title: 'Try Out 1', url: 'https://try-out-1.vercel.app/', iconColor: 'text-purple-500' },
   { id: '6', title: 'TES PANCASILA', url: 'https://tes-pancasila.netlify.app/', iconColor: 'text-rose-500' },
   { id: '7', title: 'TES TWK INDO II', url: 'https://tes-twk-indonesia.netlify.app/', iconColor: 'text-violet-500' },
   { id: '8', title: 'TES TWK II', url: 'https://tes-twk-ii.netlify.app/', iconColor: 'text-sky-500' },
   { id: '9', title: 'TRY OUT 4', url: 'https://try-out-4.netlify.app/', iconColor: 'text-indigo-500' },
-  { id: '10', title: 'TATA NEGARA', url: 'https://tata-negara.netlify.app/', iconColor: 'text-red-500' }
+  { id: '10', title: 'TATA NEGARA', url: 'https://tata-negara.netlify.app/', iconColor: 'text-red-500' },
+  { id: '11', title: 'Tes TWK', url: 'https://tes-twk.vercel.app/', iconColor: 'text-teal-500' },
+  { id: '12', title: 'Tes UUD 1945', url: 'https://tes-uud.vercel.app/', iconColor: 'text-sky-500' },
+  { id: '13', title: 'Tes UU Desa', url: 'https://tes-uu-desa.vercel.app/', iconColor: 'text-orange-500' },
 
 ];
 
 const backgroundImages = [
-  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908167/b8f1180a76a796c38755e93c7fbf6d19_hfbdtc.jpg',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1755051436/BG_Beachside_Night_waifu2x_art_noise3_scale_xlb95f.png',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1755051429/BG_Beachside_Sunset_waifu2x_art_noise3_scale_q47ota.png',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1755051428/BG_Beachside_waifu2x_art_noise3_scale_mghu0e.png',
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754907635/4b2e55b89740491cd74ce5908ee3d4a6_bem4zh.jpg',
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908165/a943d53cea39fefb6e2ea6d8d7a4406f_gwvp2i.jpg',
+  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908167/8df6c58da5e889db0ff9b8e0151bf7a3_kukqjh.jpg',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1755051406/BG_StudentRoom_Night2_waifu2x_art_noise3_scale_osq2sc.png',
   'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754907649/1350248_odczfx.png',
   'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754907639/BG_Atelier_Night_waifu2x_art_noise3_scale_xeul5y.png',
-  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754907635/4b2e55b89740491cd74ce5908ee3d4a6_bem4zh.jpg',
-  'https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908165/a943d53cea39fefb6e2ea6d8d7a4406f_gwvp2i.jpg',
-  'https://res.cloudinary.com/dntbcmcc3/image/upload/v1754908167/8df6c58da5e889db0ff9b8e0151bf7a3_kukqjh.jpg'
   
+    
 ];
 
 const colorOptions = [
@@ -330,49 +332,59 @@ function App() {
         </div>
 
         {/* Learning Cards Dropdown */}
-       <div
-          className={`w-full max-w-md mb-8 ${
+        <div
+          // PERBAIKAN 1: Tambahkan padding, hapus batasan lebar kecil, pusatkan, dan batasi lebar maksimum
+          className={`w-full px-4 max-w-5xl mx-auto mb-8 ${
             showCards ? "mb-[120px] sm:mb-8" : "mb-8"
           }`}
         >
-        <button
-          onClick={() => setShowCards(!showCards)}
-          className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 text-white hover:bg-white/30 transition-all duration-300 flex items-center justify-between"
-        >
-          <span className="font-semibold">Materi Pembelajaran</span>
-          {showCards ? <ChevronUp /> : <ChevronDown />}
-        </button>
+         <button
+            onClick={() => setShowCards(!showCards)}
+            className="relative w-fit bg-white/20 backdrop-blur-md border border-white/30 rounded-xl px-8 py-3 pr-12 text-white hover:bg-white/30 transition-all duration-300 text-center"
+          >
+            <span className="font-semibold">Materi Pembelajaran</span>
+            <span className="absolute right-4 top-1/2 -translate-y-1/2">
+              {showCards ? <ChevronUp /> : <ChevronDown />}
+            </span>
+          </button>
 
-        {showCards && (
-          <div className="mt-4 space-y-3 animate-in slide-in-from-top-2 duration-300">
-            {cards.map((card) => (
-              <a
-                key={card.id}
-                href={card.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="flex items-center space-x-4">
-                  <Book
-                    className={`w-6 h-6 ${card.iconColor} transition-transform duration-300 hover:scale-110`}
-                  />
-                  <span className="text-white font-medium">{card.title}</span>
-                </div>
-              </a>
-            ))}
 
-            {/* Add New Card Button */}
-            <button
-              onClick={() => setShowAddModal(true)}
-              className="w-full bg-teal-500/20 backdrop-blur-md border border-teal-300/50 rounded-xl p-4 text-white hover:bg-teal-500/30 transition-all duration-300 flex items-center justify-center space-x-2"
+
+
+          {showCards && (
+            <div
+              // PERBAIKAN 2: Ubah dari layout space-y menjadi Grid Responsif
+              // Mobile (default): 1 kolom | Medium: 3 kolom | Large: 4 kolom
+              className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3 lg:grid-cols-4 animate-in slide-in-from-top-2 duration-300"
             >
-              <Plus className="w-5 h-5" />
-              <span>Tambah Materi Baru</span>
-            </button>
-          </div>
-        )}
-       </div>
+              {cards.map((card) => (
+                <a
+                  key={card.id}
+                  href={card.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                >
+                  <div className="flex items-center space-x-4">
+                    <Book
+                      className={`w-6 h-6 ${card.iconColor} transition-transform duration-300 hover:scale-110`}
+                    />
+                    <span className="text-white font-medium">{card.title}</span>
+                  </div>
+                </a>
+              ))}
+
+              {/* Add New Card Button */}
+              <button
+                onClick={() => setShowAddModal(true)}
+                className="w-full bg-teal-500/20 backdrop-blur-md border border-teal-300/50 rounded-xl p-4 text-white hover:bg-teal-500/30 transition-all duration-300 flex items-center justify-center space-x-2"
+              >
+                <Plus className="w-5 h-5" />
+                <span>Tambah Materi Baru</span>
+              </button>
+            </div>
+          )}
+        </div>
 
       </div>
 
