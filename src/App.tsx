@@ -165,6 +165,7 @@ const initialCards: LearningCard[] = [
   { id: '11', title: 'Tes TWK', url: 'https://tes-twk.vercel.app/', iconColor: 'text-teal-500' },
   { id: '12', title: 'Tes UUD 1945', url: 'https://tes-uud.vercel.app/', iconColor: 'text-sky-500' },
   { id: '13', title: 'Tes UU Desa', url: 'https://tes-uu-desa.vercel.app/', iconColor: 'text-orange-500' },
+  { id: '14', title: 'PEMERINTAH DESA I', url: 'https://pemerintah-desa.netlify.app/', iconColor: 'text-orange-500' }
 
 ];
 
