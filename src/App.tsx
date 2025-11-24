@@ -166,7 +166,9 @@ const initialCards: LearningCard[] = [
   { id: '12', title: 'Tes UUD 1945', url: 'https://tes-uud.vercel.app/', iconColor: 'text-sky-500' },
   { id: '13', title: 'Tes UU Desa', url: 'https://tes-uu-desa.vercel.app/', iconColor: 'text-orange-500' },
   { id: '14', title: 'PEMERINTAH DESA I', url: 'https://pemerintah-desa.netlify.app/', iconColor: 'text-sky-500' },
-  { id: '15', title: 'PEMERINTAH DESA II', url: 'https://pemerintah-desa-ii.netlify.app/', iconColor: 'text-teal-500' }
+  { id: '15', title: 'PEMERINTAH DESA II', url: 'https://pemerintah-desa-ii.netlify.app/', iconColor: 'text-teal-500' },
+  { id: '16', title: 'PEMERINTAH DESA III', url: 'https://pemerintah-desa-iii.netlify.app/', iconColor: 'text-rose-500' },
+  { id: '17', title: 'PEMERINTAH DESA IV', url: 'https://pemerintah-desa-iv.netlify.app/', iconColor: 'text-yellow-500' }
 
 ];
 
