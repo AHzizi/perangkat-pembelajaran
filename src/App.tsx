@@ -168,7 +168,9 @@ const initialCards: LearningCard[] = [
   { id: '14', title: 'PEMERINTAH DESA I', url: 'https://pemerintah-desa.netlify.app/', iconColor: 'text-sky-500' },
   { id: '15', title: 'PEMERINTAH DESA II', url: 'https://pemerintah-desa-ii.netlify.app/', iconColor: 'text-teal-500' },
   { id: '16', title: 'PEMERINTAH DESA III', url: 'https://pemerintah-desa-iii.netlify.app/', iconColor: 'text-rose-500' },
-  { id: '17', title: 'PEMERINTAH DESA IV', url: 'https://pemerintah-desa-iv.netlify.app/', iconColor: 'text-yellow-500' }
+  { id: '17', title: 'PEMERINTAH DESA IV', url: 'https://pemerintah-desa-iv.netlify.app/', iconColor: 'text-yellow-500' },
+  { id: '18', title: 'PEMERINTAH DESA V', url: 'https://pemerintah-desa-v.netlify.app/', iconColor: 'text-red-500' },
+  { id: '19', title: 'PEMERINTAH DESA VI', url: 'https://pemerintah-desa-vi.netlify.app/', iconColor: 'text-teal-500' }
 
 ];
 
