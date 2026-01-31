@@ -224,6 +224,23 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [manualTheme, setManualTheme] = useState<boolean | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [username, setUsername] = useState("");
+  const [showNamePopup, setShowNamePopup] = useState(false);
+  // Isi Nama Pengguna
+  useEffect(() => {
+  const savedName = localStorage.getItem("username");
+    if (savedName) {
+      setUsername(savedName);
+    } else {
+      setShowNamePopup(true);
+    }
+  }, []);
+
+  const submitName = () => {
+    if (!username.trim()) return;
+    localStorage.setItem("username", username);
+    setShowNamePopup(false);
+  };
 
   // Update time every second
   useEffect(() => {
@@ -298,6 +315,38 @@ function App() {
         <div className={`absolute inset-0 ${isDarkMode ? 'bg-black/60' : 'bg-black/30'} transition-colors duration-500`} />
       </div>
 
+      {/* Isi Nama Pengguna */}
+      {showNamePopup && (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
+          <div className="bg-white rounded-xl p-6 w-80 shadow-xl text-center">
+            <h2 className="text-lg font-bold mb-3">Masukkan Nama Kamu 👋</h2>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault(); // biar ga reload
+                submitName();
+              }}
+            >
+              <input
+                type="text"
+                placeholder="Nama kamu..."
+                className="border w-full p-2 rounded mb-4"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                autoFocus
+              />
+
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+              >
+                Lanjut
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
 
 
       {/* Main Content */}
@@ -321,7 +370,13 @@ function App() {
               animation: "slow-gradient 8s ease infinite"
             }}
           >
-            <a href="https://www.instagram.com/miftakulazizi/" target="_blank" rel="noopener noreferrer">Miftakul Azizi</a>
+            <a
+              href="https://www.instagram.com/miftakulazizi/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {username || "Guest"}
+            </a>
         </span>
         <style>
         {`
